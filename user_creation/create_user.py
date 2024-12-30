@@ -1,6 +1,8 @@
 import os
 from dotenv import load_dotenv
 from datetime import datetime as dt
+from datetime import timezone
+from datetime import UTC
 from eth_account import Account
 from cryptography.fernet import Fernet
 from google.cloud import storage
@@ -97,7 +99,7 @@ def increment_user_count():
             db=os.getenv("REDIS_DB"),
         )
 
-        current_date = dt.now().strftime("%Y-%m-%d")
+        current_date = dt.now(dt.timezone.utc).strftime("%Y-%m-%d UTC")
         key = f"total_users_count:ON_{current_date}"
 
         redis_client.incr(key)
