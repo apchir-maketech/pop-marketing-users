@@ -98,7 +98,7 @@ def increment_user_count():
             db=os.getenv("REDIS_DB"),
         )
 
-        current_date = dt.now(timezone.utc).strftime("%Y-%m-%d UTC")
+        current_date = dt.now(timezone.utc).strftime("%Y-%m-%d")
         key = f"total_users_count:ON_{current_date}"
 
         redis_client.incr(key)
