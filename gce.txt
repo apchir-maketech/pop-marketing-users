@@ -1,0 +1,39 @@
+Boot disk: Ubuntu 24.04 LTS (Long-Term Support) (x86/64, amd64) -- comes with Python 3.12 by default and supports modern software stacks.
+
+Boot disk size: 50 GB
+
+Network tag: pop-misc-vm
+
+Access scopes: Allow full access to all Cloud APIs
+
+Enable deletion protection
+
+
+augustine_chirra@pop-misc:~$ python3 --version
+Python 3.12.3
+augustine_chirra@pop-misc:~$ sudo apt update
+augustine_chirra@pop-misc:~$ sudo apt install python3-pip
+augustine_chirra@pop-misc:~$ pip3 --version
+pip 24.0 from /usr/lib/python3/dist-packages/pip (python 3.12)
+
+
+
+ssh-keygen -t rsa -b 4096 -C "augustine.chirra@make.tech"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub
+
+add the ssh key to github.com -> settings
+
+git clone git@github.com:apchir-maketech/pop-marketing-users.git
+cd pop-marketing-users/user_creation
+vi .env
+
+sudo apt install python3-venv
+python3 -m venv venv
+source venv/bin/activate
+pip3 install -r requirements.txt
+
+python3 create_user.py
+
+deactivate

@@ -24,10 +24,14 @@ echo $count > "$COUNTER_FILE"
 
 echo "[$(date)] Execution #$count for $TODAY"
 
+# Navigate to the project directory
 cd /home/augustine_chirra/pop-marketing-users/user_creation
 
 # Random delay between 0-240 seconds
 sleep $((RANDOM % 240))
+
+# Activate the virtual environment
+source venv/bin/activate
 
 # Run with proper error handling
 if python3 create_user.py; then
@@ -36,3 +40,8 @@ else
     echo "[$(date)] Error executing create_user.py"
     exit 1
 fi 
+
+# Deactivate the virtual environment after the script runs
+deactivate
+
+echo "[$(date)] Script completed"
