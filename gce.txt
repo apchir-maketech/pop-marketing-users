@@ -26,14 +26,20 @@ cat ~/.ssh/id_rsa.pub
 add the ssh key to github.com -> settings
 
 git clone git@github.com:apchir-maketech/pop-marketing-users.git
-cd pop-marketing-users/user_creation
+cd /home/augustine_chirra/pop-marketing-users/user_creation
 vi .env
 
 sudo apt install python3-venv
 python3 -m venv venv
 source venv/bin/activate
 pip3 install -r requirements.txt
-
 python3 create_user.py
-
 deactivate
+
+
+cd /home/augustine_chirra/pop-marketing-users/user_creation/schedule
+chmod +x run_with_random_delay.sh
+
+nohup /home/augustine_chirra/pop-marketing-users/user_creation/schedule/run_with_random_delay.sh >> /home/augustine_chirra/pop-marketing-users/user_creation/schedule/cron.log 2>&1 &
+
+tail -f /home/augustine_chirra/pop-marketing-users/user_creation/schedule/cron.log

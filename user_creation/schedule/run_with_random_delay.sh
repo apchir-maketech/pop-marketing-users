@@ -27,8 +27,10 @@ echo "[$(date)] Execution #$count for $TODAY"
 # Navigate to the project directory
 cd /home/augustine_chirra/pop-marketing-users/user_creation
 
-# Random delay between 0-240 seconds
-sleep $((RANDOM % 240))
+# Calculate random delay between 0-240 seconds
+DELAY=$((RANDOM % 240))
+echo "[$(date)] Starting with random delay of $DELAY seconds"
+sleep $DELAY
 
 # Activate the virtual environment
 source venv/bin/activate

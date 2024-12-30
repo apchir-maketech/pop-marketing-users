@@ -37,6 +37,7 @@ crontab -e
 ```
 
 Then paste your chosen configuration.
+If using nano editor, press `Ctrl+O` to save, then enter to confirm the file name, and `Ctrl+X` to exit.
 
 # Monitor
 
