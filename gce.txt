@@ -37,9 +37,6 @@ python3 create_user.py
 deactivate
 
 
-cd /home/augustine_chirra/pop-marketing-users/user_creation/schedule
-chmod +x run_with_random_delay.sh
-
 nohup /home/augustine_chirra/pop-marketing-users/user_creation/schedule/run_with_random_delay.sh >> /home/augustine_chirra/pop-marketing-users/user_creation/schedule/cron.log 2>&1 &
 
 tail -f /home/augustine_chirra/pop-marketing-users/user_creation/schedule/cron.log
