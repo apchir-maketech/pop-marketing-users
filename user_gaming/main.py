@@ -27,7 +27,7 @@ async def send_pop_message(username):
     headers = {"Origin": "https://www.popcoin.game"}
     message = {
         "type": "markPop",
-        "value": json.dumps({"count": 300, "username": username}),
+        "value": json.dumps({"count": os.getenv("POP_COUNT"), "username": username}),
     }
 
     try:
